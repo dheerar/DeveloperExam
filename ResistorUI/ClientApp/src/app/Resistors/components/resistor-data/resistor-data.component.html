@@ -1,0 +1,53 @@
+<h1 id="headerTitle" class="text-style">Resistor Calculator</h1>
+
+<label class="margin-style">Band A</label>
+<select class="btn btn-secondary" [(ngModel)]="selectedBandA">
+  <option *ngFor="let band of bandsA; let i = index" [ngStyle]="{'background-color': bandsA[i].backgroundColor, 'color': bandsA[i].color}" [value]="bandsA[i].backgroundColor">{{bandsA[i].value}}</option>
+</select>
+
+<label class="margin-style">Band B</label>
+<select class="btn btn-secondary" [(ngModel)]="selectedBandB">
+  <option *ngFor="let band of bandsB; let i = index" [ngStyle]="{'background-color': bandsB[i].backgroundColor, 'color': bandsB[i].color}" [value]="bandsB[i].backgroundColor">{{bandsB[i].value}}</option>
+</select>
+
+<label class="margin-style">Multiplier</label>
+<select class="btn btn-secondary" [(ngModel)]="selectedBandC">
+  <option *ngFor="let band of bandsC; let i = index" [ngStyle]="{'background-color': bandsC[i].backgroundColor, 'color': bandsC[i].color}" [value]="bandsC[i].backgroundColor">{{bandsC[i].value}}</option>
+</select>
+
+<label class="margin-style">Tolerance</label>
+<select class="btn btn-secondary" [(ngModel)]="selectedBandD">
+  <option *ngFor="let band of bandsD; let i = index" [ngStyle]="{'background-color': bandsD[i].backgroundColor, 'color': bandsD[i].color}" [value]="bandsD[i].backgroundColor">{{bandsD[i].value}}</option>
+</select>
+
+<br />
+
+<button class="btn btn-primary button-style" type="submit" (click)="submit()">Submit</button>
+
+<br />
+
+<div *ngIf="ohmResistance">
+  <label class="text-style">Resistance</label>
+  <input class="label-style" type="text" value="{{ohmResistance.resistance}}" disabled>
+  <label class="label-style">Ohms</label>
+
+  <br />
+
+  <label class="text-style">Minimum Resistance</label>
+  <input class="label-style" type="text" value="{{ohmResistance.minResistance}}" disabled>
+  <label class="label-style">Ohms</label>
+
+  <br />
+
+  <label class="text-style">Maximum Resistance</label>
+  <input class="label-style" type="text" value="{{ohmResistance.maxResistance}}" disabled>
+  <label class="label-style">Ohms</label>
+</div>
+
+
+
+<h1 id="headerTitle" class="header-style">Matching Brackets</h1>
+<label class="text-style">Enter combination of brackets</label>
+<input class="label-style" type="text" [(ngModel)]="bracketInput">
+<button class="btn btn-primary button-style" type="submit" (click)="areBracketsClosed(bracketInput)">Submit</button>
+<label class="label-style">{{matchingBracket}}</label>
